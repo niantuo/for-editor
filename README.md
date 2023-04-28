@@ -1,6 +1,10 @@
 # for-editor
 
 > for-editor 是一个基于 react 的 markdown 语法编辑器
+>
+> fork from [kkfor/for-editor](https://github.com/kkfor/for-editor)
+> 
+> 在基础上增加一些灵活性，比如可添加自定义的toolbar
 
 ### [English Documents](./README.EN.md)
 
@@ -10,7 +14,7 @@
 ### 安装
 
 ```js
-npm install for-editor -S
+npm install for-editor-plus -S
 ```
 
 ### 使用
@@ -18,7 +22,7 @@ npm install for-editor -S
 ```js
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import Editor from 'for-editor'
+import Editor from 'for-editor-plus'
 
 class App extends Component {
   constructor() {
@@ -135,6 +139,19 @@ class App extends Component {
     )
   }
 }
+```
+
+### 预览
+```jsx
+let value = ``
+
+return (
+	<div
+		ref={this.$scrollPreview}
+		className="for-preview for-markdown-preview"
+		dangerouslySetInnerHTML={{ __html: marked(value) }}
+	/>
+)
 ```
 
 #### 快捷键

@@ -9,6 +9,7 @@ interface IP {
   expand: boolean
   subfield: boolean
   words: IWords
+  append?: React.ReactNode | React.ReactNode[]
 }
 
 class Toolbars extends React.Component<IP, {}> {
@@ -23,7 +24,7 @@ class Toolbars extends React.Component<IP, {}> {
   }
 
   render() {
-    const { preview, expand, subfield, toolbar, words } = this.props
+    const { preview, expand, subfield, toolbar, words, append } = this.props
 
     const previewActive = classNames({
       'for-active': preview
@@ -71,6 +72,7 @@ class Toolbars extends React.Component<IP, {}> {
             <i className="foricon for-subfield" />
           </li>
         )}
+        {append}
       </ul>
     )
   }

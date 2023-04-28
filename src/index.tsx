@@ -68,6 +68,10 @@ interface IP {
   toolbar?: IToolbar
   language?: string
   addImg?: (file: File, index: number) => void
+  toolbarAppend?: {
+    left?: React.ReactNode | React.ReactNode[]
+    right?: React.ReactNode | React.ReactNode[]
+  }
 }
 
 interface IS {
@@ -397,6 +401,7 @@ class MdEditor extends React.Component<IP, IS> {
               onClick={this.toolBarLeftClick}
               addImg={this.addImg}
               {...this.props}
+              append={this.props.toolbarAppend?.left}
             />
             <ToolbarRight
               toolbar={toolbar}
@@ -405,6 +410,7 @@ class MdEditor extends React.Component<IP, IS> {
               expand={expand}
               subfield={subfield}
               onClick={this.toolBarRightClick}
+              append={this.props.toolbarAppend?.right}
             />
           </div>
         )}

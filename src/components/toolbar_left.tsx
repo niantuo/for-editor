@@ -5,6 +5,7 @@ interface IP {
   addImg: (file: File, index: number) => void
   toolbar: IToolbar
   words: IWords
+  append?: React.ReactNode | React.ReactNode[]
 }
 
 interface IS {
@@ -71,7 +72,7 @@ class Toolbars extends React.Component<IP, IS> {
   }
 
   render() {
-    const { toolbar, words } = this.props
+    const { toolbar, words, append } = this.props
     const { imgHidden } = this.state
     return (
       <ul>
@@ -132,6 +133,9 @@ class Toolbars extends React.Component<IP, IS> {
             <i className="foricon for-save" />
           </li>
         )}
+        {
+          append
+        }
       </ul>
     )
   }
